@@ -8,8 +8,11 @@ fun main(args: Array<String>) {
     var name = "bas"
     // val is immutable
     val bas = Person(name)
+    val basTwo = PersonTwo(name)
+
 
     bas.display()
+    basTwo.display()
 
     // pass (anonymous) methods as arguments
     bas.displayLambda(fun (name: String) {
