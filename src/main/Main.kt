@@ -43,7 +43,7 @@ fun passMethod(name: String) {
     println("method passed! name: $name")
 }
 
-fun testNullable() {
+fun testNullable(): String{
     // ? tells compiler explicitly it can be null. Otherwise you cannot assign null
     // If a variable can be null, we must always test for null
     var a:Question? = Question()
@@ -56,6 +56,10 @@ fun testNullable() {
     if (a != null) {}
 
     // better: null test in the evaluation:
-    if (a?.correctAnswer == "42") { "yay"}
+    return if (a?.correctAnswer == "42") "yay" else "nope"
+}
 
+// can also add nullable value to return type
+fun returnPossibleNull(answer: String): String? {
+    return if ("42" == answer) "yep" else null
 }
