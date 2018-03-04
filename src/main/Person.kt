@@ -1,7 +1,7 @@
-/*
+package main/*
 Decompile command to see Java class file:
 
-java -cp "/Applications/IntelliJ IDEA.app/Contents/plugins/java-decompiler/lib/java-decompiler.jar" org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler /Users/bas/Documents/projects/kotlinexperiments/out/production/kotlinexperiments/Person.class /Users/bas/Documents/projects/kotlinexperiments/out/production/kotlinexperiments/
+java -cp "/Applications/IntelliJ IDEA.app/Contents/plugins/java-decompiler/lib/java-decompiler.jar" org.jetbrains.java.decompiler.main.main.decompiler.ConsoleDecompiler /Users/bas/Documents/projects/kotlinexperiments/out/production/kotlinexperiments/main.Person.class /Users/bas/Documents/projects/kotlinexperiments/out/production/kotlinexperiments/
  */
 
 
