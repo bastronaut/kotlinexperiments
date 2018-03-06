@@ -10,15 +10,31 @@ fun main(args: Array<String>) {
 
     // compiler infers q is of type Quesiton
     var q = Question()
-    q.question(wrongNr)
-    q.assignThruIfStatement("42")
+//    q.question(wrongNr)
+//    q.question("42")
 
     // explicitly state the variable is of a type
     var qTwo:Question = Question()
 
-    testNullable()
+//    testNullable()
+//    testWhenStatement()
+//    testAssignThruIfStatement()
+    testAssignThruTryExpression()
+}
 
+fun testWhenStatement() {
+    var q = Question()
+    q.whenStatement("yo")
+}
 
+fun testAssignThruIfStatement() {
+    val q = Question()
+    q.assignThruIfStatement("43")
+    q.assignThruIfStatement("42")
+}
+fun testAssignThruTryExpression() {
+    var q = Question()
+    q.assignThruTryStatement("derp")
 }
 
 fun testLambda() {

@@ -24,7 +24,12 @@ public class Question() {
             println("surely not $answer")
             message = "nope"
         }
-        print(message)
+        println(message)
+
+        println("hashcodes:")
+        println(answer.hashCode())
+        println(this.correctAnswer.hashCode())
+        println(this.correctAnswer.toString())
     }
 
     // test obj constructors
@@ -43,5 +48,38 @@ public class Question() {
             "nope"
         }
         print("Was it the right answer: $message")
+    }
+
+    // similar to if, try catch is also an expression?
+    fun assignThruTryStatement(number: String) {
+
+        // expression to assign to variable
+        val nr:Int = try {
+            // ps simply using Java wrapper class of primitive int
+            Integer.parseInt(number)
+        } catch (e:NumberFormatException) {
+            -1
+        }
+
+        // OR ALTERNATIVELY, use nullable type
+        val nrMaybe:Int? = try {
+            Integer.parseInt(number)
+        } catch(e:NumberFormatException) {
+            null // can now return null and we check it on use
+        }
+
+        // not checking for null?
+        print(nrMaybe) // print null works fine btw no nullpointer
+    }
+
+    // When replaces case switch statement. apparantly more powerful
+    fun whenStatement(word: String) {
+
+        when (word) {
+            "yo" -> print("yo $word yoyo")
+            "bye" -> print("bye $word")
+            else -> print ("nuttin")
+        }
+
     }
 }
