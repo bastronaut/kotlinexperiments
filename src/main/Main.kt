@@ -18,8 +18,9 @@ fun main(args: Array<String>) {
 
 //    testNullable()
 //    testWhenStatement()
-//    testAssignThruIfStatement()
-    testAssignThruTryExpression()
+//    testAssignThruIfExpression()
+//    testAssignThruTryExpression()
+    testRangeLoop()
 }
 
 fun testWhenStatement() {
@@ -27,7 +28,7 @@ fun testWhenStatement() {
     q.whenStatement("yo")
 }
 
-fun testAssignThruIfStatement() {
+fun testAssignThruIfExpression() {
     val q = Question()
     q.assignThruIfStatement("43")
     q.assignThruIfStatement("42")
@@ -35,6 +36,39 @@ fun testAssignThruIfStatement() {
 fun testAssignThruTryExpression() {
     var q = Question()
     q.assignThruTryStatement("derp")
+}
+
+fun testRangeLoop() {
+    for (i in 1..10) {
+        println(i)
+    }
+
+    for (i in 1..10 step 2) {
+        print(i)
+    }
+
+    // inclusive range / closed range
+    for (i in 10 downTo 4 step 2) {
+        print(i)
+    }
+
+    // exclusive 10, goes untli 9
+    for (i in 1 until 10) {
+        print(i)
+    }
+
+    var numbers = listOf(1, 2, 3, 4, 5)
+    for (i in numbers) print(i)
+
+
+//    with an index.
+    for ((index, elemt) in numbers.withIndex()) {
+        println("the index is $index")
+    }
+    // can also range over other stuff like strings
+    var stringRange = listOf('a'..'z').flatten()
+//    println(stringRange)
+    for (i in stringRange) print(i)
 }
 
 fun testLambda() {
@@ -54,6 +88,19 @@ fun testLambda() {
 
     // or named methods by reference
     bas.displayLambda(::passMethod)
+}
+
+fun testMapIterate() {
+    var ages = HashMap<String, Int>()
+    ages["Bas"] = 12
+    ages["henk"] = 15
+    ages["yolo"] = 13
+
+//    for... in of collection
+    for ((name, age) in ages) {
+        print("$name is $age")
+    }
+
 }
 fun passMethod(name: String) {
     println("method passed! name: $name")
