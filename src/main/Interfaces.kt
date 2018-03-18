@@ -21,9 +21,21 @@ class YoloTime {
     var minutes: Int = 0
     var seconds: Int = 0
 }
-// no implements and extends keyword, colon is used for both extension and interface
+// no implements and extends keyword, colon is used for both extension and interface?
 class YetiTime : Time {
     // must explicitly mention override
     override fun setTime(hours: Int, mins: Int, secs: Int) { }
 
+}
+
+/**
+ * Any is common superclass in kotlin. But not the same as java.lang.Object
+ */
+class testInheritanceFromAny : Any() {
+    fun yolo() {
+        print(5)
+    }
+    override fun toString(): String {
+        return ""
+    }
 }

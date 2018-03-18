@@ -2,7 +2,7 @@ package main
 
 /**
  * When you dont define a class, kotlin compiler generates a class ->
- * Main.Question creates class MainKt (check run profile)
+ * Main.Question creates class TestBasicsKt (check run profile)
  */
 fun main(args: Array<String>) {
 
