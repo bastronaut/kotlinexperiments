@@ -25,6 +25,7 @@ fun main(args: Array<String>) {
 //    println(log(message = "yo", 6)) // compile error
 
     testExtensionFunction()
+    testOperatorInfix()
 
 }
 
@@ -95,3 +96,41 @@ fun testExtensionFunction() {
     println("vwxyz".printMiddleCharacterExtension())
 }
 
+fun testInfix() {
+    val a: Int = 10
+    val b: Int = 20
+    // this would work on normal method
+    val c = a.infixplus(b)
+    // with infix:
+    val d = a infixplus b
+
+}
+
+infix fun Int.infixplus(a: Int) : Int {
+    return this + a
+}
+
+
+// class to test operator infix
+class Testy(val number: Int) {
+    // need override 'annotation'? to override supertyoe method
+    public override fun toString(): String {
+        return Integer.toString(this.number)
+    }
+}
+/* operator overloading lol, allows changing behavior of the operators?
+Seems like a good idea to screw with people
+ */
+infix operator fun Testy.plus(a: Testy): Int {
+    return this.number + a.number * 2
+}
+
+// allows using + operator on objects now
+fun testOperatorInfix() {
+    val a = Testy(10)
+    val b = Testy(2)
+    val c = a + b
+    println(c)
+    // Java it compiles to is simply the call:
+    // int c = plus(a, b)
+}

@@ -27,5 +27,8 @@ public class FunctionsJava {
         DisplayFunctions.log("yo", 6);
 //        DisplayFunctions.logNoOverload("yo" ); // compile error
         DisplayFunctions.logNoOverload("yo", 5 ); // compile error
+
+
     }
+
 }
