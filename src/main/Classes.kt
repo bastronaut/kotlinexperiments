@@ -99,9 +99,10 @@ class TestStaticCaller {
      */
 }
 
-// Sealed Class. Basically specify an abstract superclass, that contains its
-// extending classes (is-a relationship). Useful for restricted type of events happening.
-// Sealed classes useful when normally using case switch
+/** Sealed Class. Basically specify an abstract superclass, that contains its
+ * extending classes (is-a relationship). Useful for restricted type of events happening.
+ * Sealed classes useful when normally using case switch
+  */
 sealed class Event {
     class BigBang: Event()
     class Cataclysm(val cheer: String): Event()
@@ -117,5 +118,54 @@ fun testTheEvents(e: Event) {
         is Event.BigBang -> print("big bang!")
         is Event.Cataclysm -> print(e.cheer)
         is Event.Purge -> e.sayYo() // compiled says 'smart cast' as it knows the type
+    }
+}
+
+/**
+ * Style preference: create the constructor on class definition
+ */
+class Constructors (var name: String) {
+    // however , can also create a custom 2nd constructor, but requires calling the
+    // primary constructor using this(). Could also call superclass with super()
+    constructor (name: String, _age: Int) : this(name) {
+        var age = _age
+    }
+
+    val height: Int
+    // will run upon construction
+    init {
+        height = 10
+    }
+}
+
+/**
+ * Both the class and the constructor argument set to open in order to override them
+ */
+open class Animal (open var name: String) {
+
+    fun printName() {
+        println("$name")
+    }
+}
+
+/**
+ when extending from a class, the superclass constructor must be initialized
+  */
+class Dog (override var name: String, var color: String) : Animal(name) {
+    fun printNameColor() {
+        printName()
+        println("$color")
+    }
+}
+
+
+/**
+ * Private constructor for e.g. Singletons. Cant have constructor but init blocks
+ * are allowed for initialization code. Will be called lazily on first initializion.
+ * Also thread safe
+ */
+object someSingleton {
+    init {
+        print("init!")
     }
 }
